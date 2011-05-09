@@ -27,4 +27,10 @@
   (apply #'append (mapcar #'describe-path (cdr (assoc location edges)))))
 
 ;; define some objects
-(defparameter *objects* '(whiskey buckey frog chain))
+(defparameter *objects* '(whiskey bucket frog chain))
+
+;; define where the objectes are
+(defparameter *object-location* '((whiskey living-room)
+				  (bucket living-room)
+				  (frog garden)
+				  (chain garden)))
