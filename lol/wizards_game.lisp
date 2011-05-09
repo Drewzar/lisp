@@ -30,7 +30,7 @@
 (defparameter *objects* '(whiskey bucket frog chain))
 
 ;; define where the objectes are
-(defparameter *object-location* '((whiskey living-room)
+(defparameter *object-locations* '((whiskey living-room)
 				  (bucket living-room)
 				  (frog garden)
 				  (chain garden)))
@@ -40,3 +40,4 @@
   (labels ((at-loc-p (obj)
 	     (eq (cadr (assoc obj obj-locs)) loc)))
     (remove-if-not #'at-loc-p objs)))
+
