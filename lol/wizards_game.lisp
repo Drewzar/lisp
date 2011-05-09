@@ -34,3 +34,9 @@
 				  (bucket living-room)
 				  (frog garden)
 				  (chain garden)))
+
+;; define a a function that lists the objects visible from a given location
+(defun objects-at (loc objs obj-locs)
+  (labels ((at-loc-p (obj)
+	     (eq (cadr (assoc obj obj-locs)) loc)))
+    (remove-if-not #'at-loc-p objs)))
