@@ -14,7 +14,7 @@
 
 ;; define the paths (*edges*) a player can take from each node.
 (defparameter *edges* '((living-room (garden west door)
-			             (attic upstars ladder))
+			             (attic upstairs ladder))
 			(garden (living-room east door))
 			(attic (living-room downstairs ladder))))
 
@@ -55,3 +55,13 @@
   (append (describe-location *location* *nodes*)
 	  (describe-paths *location* *edges*)
 	  (describe-objects *location* *objects* *object-locations*)))
+
+;; define a function that lets us walk around
+(defun walk (direction)
+  (let ((next (find direction
+		    (cdr (assoc *location* *edges*))
+		    :key #'cadr)))
+    (if next
+	(progn (setf *location* (car next))
+	       (look))
+	'(you can't go that way.))))
