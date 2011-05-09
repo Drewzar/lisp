@@ -11,3 +11,13 @@
 ;; define a function to describe the location.
 (defun describe-location (location node)
   (cadr (assoc location node)))
+
+;; define the paths (*edges*) a player can take from each node.
+(defparameter *edges* '((living-room (garden west door)
+			             (attic upstars ladder))
+			(garden (living-room east door))
+			(attic (living-room downstairs ladder))))
+
+;; defin a function to describe the path from a given node.
+(defun describe-path (edge)
+  `(there is a ,(caddr edge) going ,(cadr edge) from here.))
