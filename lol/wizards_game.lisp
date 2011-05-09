@@ -22,6 +22,9 @@
 (defun describe-path (edge)
   `(there is a ,(caddr edge) going ,(cadr edge) from here.))
 
-;; define a function to describe all the paths from a given node.
+;; define a function to describe /all/ the paths from a given node.
 (defun describe-paths (location edges)
   (apply #'append (mapcar #'describe-path (cdr (assoc location edges)))))
+
+;; define some objects
+(defparameter *objects* '(whiskey buckey frog chain))
